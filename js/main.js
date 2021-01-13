@@ -34,20 +34,19 @@ equalsInput.addEventListener('click', function(){
     display.textContent = result
 })
    
-
 function operate(num1, num2, operator){
     switch(operator){
         case 'x':
-           return num1*num2
+            return num1*num2
 
         case '/':
-           return num1/num2
+            return num1/num2
 
         case '+':
             return num1+num2     
             
         case '-':
-           return num1-num2
+            return num1-num2
         
         case 'E':  
             return num1**num2 
