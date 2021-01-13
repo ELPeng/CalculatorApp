@@ -1,0 +1,111 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+button{
+  border-radius: 10%;
+  color: navy;
+  font-size: 2em;
+}
+
+button.number:hover{
+  background-color: lightgrey;
+}
+button.number:active{
+  background-color:darkgray;
+  transform: translateY(4px);
+}
+
+button.operator:hover{
+  background-color: rgb(255, 153, 0);
+}
+button.operator:active{
+  background-color:rgb(170, 82, 0);
+  transform: translateY(4px);
+}
+
+button#equals:hover{
+  background-color: rgb(0, 195, 0);
+}
+button#equals:active{
+  background-color:rgb(0, 78, 0);
+  transform: translateY(4px);
+}
+
+button.edit:hover{
+  background-color: rgb(255, 36, 36);
+}
+button.edit:active{
+  background-color:rgb(78, 0, 0);
+  transform: translateY(4px);
+}
+
+.calculator{
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  background-color: navy;
+  padding: 5%;
+  width: 400px;
+  height: 600px;
+  gap: 2%;
+  border-radius: 2%;
+  box-shadow: 5px 10px rgb(128, 128, 128);
+
+}
+
+
+.edit{
+  font-size: 2em;
+  background-color: rgb(207, 22, 22);
+  color: white;
+}
+.number{
+  font-size: 2em;
+  color: navy;
+}
+
+
+#display{
+  background-color:black;
+  min-height: 100px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  border: solid grey 5px;
+  font-size: 3rem;
+  color: rgb(40, 233, 40)
+}
+
+
+ #equals{
+  grid-area: 6 / 4 / span 2 / span 1; 
+} 
+
+#zero{
+  grid-column-start:1;
+  grid-column-end: 3;
+} 
+
+#all-clear{
+  grid-column-start:2;
+  grid-column-end: 4;
+}
+#app-name{
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Roboto', sans-serif;
+  margin: 1rem 0;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
