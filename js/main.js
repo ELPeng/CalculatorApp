@@ -33,7 +33,7 @@ equalsInput.addEventListener('click', function(){
     refreshScreen()
     display.textContent = result
 })
-    
+   
 
 function operate(num1, num2, operator){
     switch(operator){
@@ -48,6 +48,12 @@ function operate(num1, num2, operator){
             
         case '-':
            return num1-num2
+        
+        case 'E':  
+            return num1**num2 
+
+        default:
+            return 'Error'
     }
 }
 
@@ -77,8 +83,8 @@ function refreshScreen(){
     clearArray(userInputArray)
 }
 
-function clearArray(arr){
-    arr.splice(0, arr.length)
+function clearArray(){
+    userInputArray = []
 }
 
 console.log(operate(4, 2, '/'))
