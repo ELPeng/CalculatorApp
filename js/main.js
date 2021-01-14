@@ -4,6 +4,7 @@ const allClear = document.querySelector('#all-clear')
 const numberArray = document.querySelectorAll('.number')
 const operatorArray = document.querySelectorAll('.operator') 
 const equalsInput = document.querySelector('#equals')
+const sqrt = document.querySelector('#sqrt')
 let userInputArray = []
 let userIndex = 0
 
@@ -13,7 +14,7 @@ for(let i = 0; i<numberArray.length; i++){
     numberArray[i].addEventListener('click', function(){
         addToDisplay(numberArray[i])
         storeNumToArray(numberArray[i])
-        console.log(numberArray[i])
+        console.log(userInputArray)
     })          
 }
 
@@ -28,10 +29,16 @@ for(let i = 0; i<operatorArray.length; i++){
 // Removes last input entry when 'C' is clicked
 clear.addEventListener('click', function(){
     userInputArray.splice(userInputArray.length-1)
+    console.log(userInputArray)
     display.textContent = userInputArray.join('')
     if (userIndex > 0)
-    userIndex--
-
+        userIndex--
+    operatorArray.forEach(element => {
+        if (userInputArray[userIndex] == element.textContent){
+            userIndex++
+            console.log('enter')
+        }
+    })  
 })
 
 //Clear screen and memory when 'AC' is clicked
@@ -51,6 +58,16 @@ equalsInput.addEventListener('click', function(){
     display.textContent = userInputArray[0]
 })
    
+sqrt.addEventListener('click', function(){
+    userInputArray[userIndex] = Math.sqrt((userInputArray[userIndex]))
+    display.textContent = userInputArray[userIndex]
+})
+
+sign.addEventListener('click', function(){
+    userInputArray[userIndex] *= -1 
+    display.textContent = userInputArray.join('')
+})
+
 function operate(num1, num2, operator){
     switch(operator){
         case 'x':
@@ -73,24 +90,23 @@ function operate(num1, num2, operator){
     }
 }
 
+function root(num){
+    return Math.sqrt(num)
+}
+
 function addToDisplay(appendedValue){
     display.textContent += appendedValue.textContent
 }
 
 function storeNumToArray(char){
-
-    console.log(char)
     if(char.textContent == '.'){
         userInputArray[userIndex] = userInputArray[userIndex].toString() + char.textContent.toString()
-        console.log('first')
     }
     else if(userInputArray[userIndex]){
         userInputArray[userIndex] = Number(userInputArray[userIndex].toString() + char.textContent.toString())
-        console.log('second')
-    }
+     }
     else{
         userInputArray[userIndex] = Number(char.textContent)
-        console.log('third') 
     }
 
 }

@@ -82,7 +82,8 @@ button.edit:active{
   grid-column-end: 5;
   border: solid grey 5px;
   font-size: 3rem;
-  color: rgb(40, 233, 40)
+  color: rgb(40, 233, 40);
+  overflow: hidden;
 }
 
 
