@@ -1,5 +1,6 @@
 const display = document.querySelector('#display')
-const clearScreen = document.querySelector('#clear')
+const clear = document.querySelector('#clear')
+const allClear = document.querySelector('#all-clear')
 const numberArray = document.querySelectorAll('.number')
 const operatorArray = document.querySelectorAll('.operator') 
 const equalsInput = document.querySelector('#equals')
@@ -24,14 +25,29 @@ for(let i = 0; i<operatorArray.length; i++){
     })          
 }
 
-//Clear screen when 'C' is clicked
-clearScreen.addEventListener('click', refreshScreen)
+// Removes last input entry when 'C' is clicked
+clear.addEventListener('click', function(){
+    userInputArray.splice(userInputArray.length-1)
+    display.textContent = userInputArray.join('')
+    userIndex--
+
+})
+
+//Clear screen and memory when 'AC' is clicked
+allClear.addEventListener('click', function(){
+    userInputArray = []
+    refreshScreen()
+})
 
 //When the 'equals' button is pressed, the operands are resolved via the operate function
 equalsInput.addEventListener('click', function(){
-    let result = operate(userInputArray[0], userInputArray[2], userInputArray[1])
+    let i = 1
+    while (i<userInputArray.length-1){
+        let result = operate(userInputArray[i-1], userInputArray[i+1], userInputArray[i])
+        userInputArray.splice(i-1, 3, result)
+    }
     refreshScreen()
-    display.textContent = result
+    display.textContent = userInputArray[0]
 })
    
 function operate(num1, num2, operator){
@@ -79,11 +95,10 @@ function storeOpToArray(char){
 function refreshScreen(){
     display.textContent = ''
     userIndex = 0
-    clearArray(userInputArray)
+   // clearArray(userInputArray)
 }
 
 function clearArray(){
     userInputArray = []
 }
 
-console.log(operate(4, 2, '/'))
