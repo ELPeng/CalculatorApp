@@ -13,7 +13,7 @@ for(let i = 0; i<numberArray.length; i++){
     numberArray[i].addEventListener('click', function(){
         addToDisplay(numberArray[i])
         storeNumToArray(numberArray[i])
-        console.log(userInputArray)
+        console.log(numberArray[i])
     })          
 }
 
@@ -29,6 +29,7 @@ for(let i = 0; i<operatorArray.length; i++){
 clear.addEventListener('click', function(){
     userInputArray.splice(userInputArray.length-1)
     display.textContent = userInputArray.join('')
+    if (userIndex > 0)
     userIndex--
 
 })
@@ -77,11 +78,19 @@ function addToDisplay(appendedValue){
 }
 
 function storeNumToArray(char){
-    if(userInputArray[userIndex]){
+
+    console.log(char)
+    if(char.textContent == '.'){
+        userInputArray[userIndex] = userInputArray[userIndex].toString() + char.textContent.toString()
+        console.log('first')
+    }
+    else if(userInputArray[userIndex]){
         userInputArray[userIndex] = Number(userInputArray[userIndex].toString() + char.textContent.toString())
+        console.log('second')
     }
     else{
-        userInputArray[userIndex] = Number(char.textContent) 
+        userInputArray[userIndex] = Number(char.textContent)
+        console.log('third') 
     }
 
 }
