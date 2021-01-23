@@ -10,6 +10,10 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+body{
+  background-color: rgba(255, 166, 0, 0.52)
+}
+
 button{
   border-radius: 10%;
   color: navy;
@@ -48,6 +52,14 @@ button.edit:active{
   transform: translateY(4px);
 }
 
+button.modifier:hover{
+  background-color: rgba(7, 255, 222, 0.952);
+}
+button.modifier:active{
+  background-color:rgb(3, 67, 97);
+  transform: translateY(4px);
+}
+
 .calculator{
   display: grid;
   margin: 0 auto;
@@ -73,7 +85,6 @@ button.edit:active{
   font-size: 2em;
   color: navy;
 }
-
 
 #display{
   background-color:black;
