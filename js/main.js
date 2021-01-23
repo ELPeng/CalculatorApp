@@ -21,8 +21,7 @@ for(let i = 0; i<numberArray.length; i++){
 for(let i = 0; i<operatorArray.length; i++){
     operatorArray[i].addEventListener('click', function(){
         addToDisplay(operatorArray[i])
-        storeOpToArray(operatorArray[i])
-         
+        storeOpToArray(operatorArray[i])    
     })          
 }
 
